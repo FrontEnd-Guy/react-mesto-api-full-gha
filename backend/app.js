@@ -16,9 +16,14 @@ const app = express();
 const PORT = 3000;
 
 mongoose
-  .connect('mongodb://localhost:27017/mestodb')
+  .connect('mongodb://127.0.0.1:27017/mestodb')
   .then(() => console.log('Connected'))
   .catch((error) => console.log(`Error during connection ${error}`));
+
+// mongoose
+//   .connect('mongodb://localhost:27017/mestodb')
+//   .then(() => console.log('Connected'))
+//   .catch((error) => console.log(`Error during connection ${error}`));
 
 app.use(bodyParser.json());
 app.use(cookieParser());
