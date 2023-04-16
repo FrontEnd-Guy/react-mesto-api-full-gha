@@ -1,0 +1,14 @@
+.popup_action_signup-status {
+  margin: 0;
+  padding: 60px 20px;
+  gap: 32px;
+  align-items: center;
+  text-align: center;
+}
+
+@media screen and (max-width: 426px) {
+  .popup_action_signup-status {
+    gap: 40px;
+    padding: 50px 10px;
+  }
+}

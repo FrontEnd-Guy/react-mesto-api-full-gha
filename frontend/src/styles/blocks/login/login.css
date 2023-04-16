@@ -1,0 +1,12 @@
+.login {
+  width: 100%;
+  height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 426px) {
+  .login {
+    height: calc(100vh - 85px);
+  }
+}

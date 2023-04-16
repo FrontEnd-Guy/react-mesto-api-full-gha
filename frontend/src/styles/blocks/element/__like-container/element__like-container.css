@@ -1,0 +1,9 @@
+.element__like-container {
+  grid-area: like;
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  margin: auto 20px;
+}

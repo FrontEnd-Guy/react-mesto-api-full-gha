@@ -1,0 +1,17 @@
+.popup__field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+}
+
+.popup__field:nth-child(2) {
+  margin-bottom: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .popup__field:nth-child(2) {
+    margin-bottom: 47px;
+  }
+}

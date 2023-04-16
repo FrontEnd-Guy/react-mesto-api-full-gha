@@ -1,0 +1,29 @@
+.login__submit {
+  width: 100%;
+  min-height: 50px;
+  background: #ffffff;
+  margin: 0;
+  padding: 0;
+  border: none;
+  color: #000;
+  border-radius: 2px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.login__save-button:enabled:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 426px) {
+  .login__save-button {
+    font-size: 14px;
+    line-height: 17px;
+    min-height: 46px;
+    margin: 0;
+  }
+}

@@ -1,0 +1,15 @@
+.login__link-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #fff;
+  margin: 15px auto 0;
+}
+
+@media screen and (max-width: 426px) {
+  .login__link-text {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,14 @@
+.header__navigation {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 24px;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media screen and (max-width: 426px) {
+  .header__navigation {
+    margin-right: 30px;
+  }
+}

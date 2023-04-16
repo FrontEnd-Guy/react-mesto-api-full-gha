@@ -1,0 +1,15 @@
+.element {
+  display: grid;
+  grid-template-areas:
+    "image image"
+    "title like";
+  row-gap: 25px;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 282px;
+  color: #000;
+  margin: 0 auto;
+  padding-bottom: 25px;
+  position: relative;
+}
