@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const { celebrate, Joi, errors } = require('celebrate');
 
 const { login, createUser } = require('./controllers/users');
@@ -46,8 +47,9 @@ app.use(requestLogger);
 const allowedCors = [
   'http://mesto-russia.nomoredomains.monster',
   'https://mesto-russia.nomoredomains.monster',
-  'localhost:3000',
+  'http://localhost:3000',
 ];
+
 app.use((req, res, next) => {
   const { origin } = req.headers;
   const { method } = req;
