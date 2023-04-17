@@ -44,7 +44,7 @@ const userLoginValidation = celebrate({
 app.use(requestLogger);
 
 const allowedCors = [
-  'https://mesto-russia.nomoredomains.monster',
+  'http://mesto-russia.nomoredomains.monster',
   'https://mesto-russia.nomoredomains.monster',
   'localhost:3000',
 ];
