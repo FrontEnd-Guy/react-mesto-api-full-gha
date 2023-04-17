@@ -84,27 +84,11 @@ export default class Api {
     this._baseUrl = object.baseUrl;
     this._headers = object.headers;
   }
-
-  // _createPromise(url, method, body) {
-  //   return fetch(`${this._baseUrl}${url}`, {
-  //     method: `${method}`,
-  //     headers: {...this._headers, authorization: `Bearer ${localStorage.getItem('jwt')}`},
-  //     body: body,
-  //     credentials: 'include',
-  //   }).then((res) => {
-  //     if (res.ok) {
-  //       return res.json();
-  //     }
-  //     return Promise.reject(`Ошибка: ${res.status}`);
-  //   });
-  // }
-
   _createPromise(url, method, body) {
     return fetch(`${this._baseUrl}${url}`, {
       method: `${method}`,
-      headers: {...this._headers},
+      headers: {...this._headers, authorization: `Bearer ${localStorage.getItem('jwt')}`},
       body: body,
-      credentials: 'include',
     }).then((res) => {
       if (res.ok) {
         return res.json();
@@ -112,11 +96,12 @@ export default class Api {
       return Promise.reject(`Ошибка: ${res.status}`);
     });
   }
-  
   getUserInfo() {
     return this._createPromise('/users/me', 'GET');
   }
-  
+  getCardsList() {
+    return this._createPromise('/cards', 'GET');
+  }
   editUserInfo(data) {
     return this._createPromise(
       '/users/me',
@@ -127,7 +112,15 @@ export default class Api {
       }),
     );
   }
-
+  updateAvatar(data) {
+    return this._createPromise(
+      '/users/me/avatar',
+      'PATCH',
+      JSON.stringify({
+        avatar: `${data.avatar}`,
+      }),
+    );
+  }
   createCard(data) {
     return this._createPromise(
       '/cards',
@@ -138,36 +131,21 @@ export default class Api {
       }),
     );
   }
-
   deleteCard(id) {
     return this._createPromise('/cards/' + id, 'DELETE');
   }
-
-  getCardsList() {
-    return this._createPromise('/cards', 'GET');
-  }
-
   changeLikeCardStatus(id, isLiked) {
     if (isLiked) {
       return this._createPromise('/cards/' + id + '/likes', 'PUT');
     }
     return this._createPromise('/cards/' + id + '/likes', 'DELETE');
   }
-  
-  updateAvatar(data) {
-    return this._createPromise(
-      '/users/me/avatar',
-      'PATCH',
-      JSON.stringify({
-        avatar: `${data.avatar}`,
-      }),
-    );
-  }
 }
 
 export const api = new Api({
-  baseUrl: 'http://api.mesto-russia.nomoredomains.monster',
+  baseUrl: 'https://api.mesto-russia.nomoredomains.monster',
   headers: {
     'Content-Type': 'application/json',
   },
 });
+

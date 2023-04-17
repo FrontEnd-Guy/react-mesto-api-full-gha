@@ -56,31 +56,11 @@ function App() {
     [navigate]
   );
 
-  // const handleSignIn = useCallback(
-  //   async (data) => {
-  //     try {
-  //       const { token } = await signIn(data);
-  //       localStorage.setItem("jwt", token);
-  //       setIsLoggedIn(true);
-  //       navigate("/");
-  //     } catch (err) {
-  //       setInfoTooltipOpen(true);
-  //       setIsSuccessInfoTooltipStatus(false);
-  //       console.log(err);
-  //     }
-  //   },
-  //   [navigate]
-  // );
-
-  // const handleSignOut = () => {
-  //   localStorage.removeItem("jwt");
-  //   navigate("/sign-in", { replace: true });
-  // };
-
   const handleSignIn = useCallback(
     async (data) => {
       try {
-        await signIn(data);
+        const { token } = await signIn(data);
+        localStorage.setItem("jwt", token);
         setIsLoggedIn(true);
         navigate("/");
       } catch (err) {
@@ -91,11 +71,12 @@ function App() {
     },
     [navigate]
   );
-  
+
   const handleSignOut = () => {
+    localStorage.removeItem("jwt");
     navigate("/sign-in", { replace: true });
   };
-  
+
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {

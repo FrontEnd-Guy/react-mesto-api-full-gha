@@ -1,5 +1,5 @@
 const apiConfig = {
-  baseUrl: "http://api.mesto-russia.nomoredomains.monster",
+  baseUrl: "http://localhost:3000",
   headers: {
     authorization: `Bearer ${localStorage.getItem('jwt')}`,
     "Content-Type": "application/json",
