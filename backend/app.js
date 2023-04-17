@@ -11,6 +11,7 @@ const cardRouter = require('./routes/cards');
 const { errorHandler } = require('./middlewares/errors');
 const { NotFoundError } = require('./errors/index');
 const { urlRegex } = require('./utils/constants');
+const { requestLogger, errorLogger } = require('./middlewares/logger'); 
 
 const app = express();
 const PORT = 3000;
@@ -19,11 +20,6 @@ mongoose
   .connect('mongodb://127.0.0.1:27017/mestodb')
   .then(() => console.log('Connected'))
   .catch((error) => console.log(`Error during connection ${error}`));
-
-// mongoose
-//   .connect('mongodb://localhost:27017/mestodb')
-//   .then(() => console.log('Connected'))
-//   .catch((error) => console.log(`Error during connection ${error}`));
 
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -45,6 +41,8 @@ const userLoginValidation = celebrate({
   }),
 });
 
+app.use(requestLogger);
+
 app.post('/signup', userCreateValidation, createUser);
 
 app.post('/signin', userLoginValidation, login);
@@ -55,6 +53,8 @@ app.use('/cards', auth, cardRouter);
 app.use('*', (req, res, next) => {
   next(new NotFoundError('404. Такой страницы не существует.'));
 });
+
+app.use(errorLogger);
 
 app.use(errors());
 app.use(errorHandler);
