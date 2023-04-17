@@ -76,6 +76,7 @@ const corsOptions = {
     "http://mesto-russia.nomoredomains.monster", 
     "https://mesto-russia.nomoredomains.monster"],
   optionsSuccessStatus: 200,
+  credentials: true,
 };
 
 app.use(cors(corsOptions));

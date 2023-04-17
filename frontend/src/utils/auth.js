@@ -12,6 +12,7 @@ export const signUp = async (data) => {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
+    credentials: 'include',
   });
   return checkResponseStatus(res);
 };
@@ -21,6 +22,7 @@ export const signIn = async (data) => {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
+    credentials: 'include',
   });
   return checkResponseStatus(res);
 };
@@ -31,6 +33,7 @@ export const checkAuth = async (token) => {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
+      credentials: 'include',
     },
   });
   return checkResponseStatus(res);
