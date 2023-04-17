@@ -1,4 +1,4 @@
-const BASE_URL = "http://api.mesto-russia.nomoredomains.monster";
+const BASE_URL = "http://api.mesto-russia.nomoredomains.monster/";
 
 const checkResponseStatus = (response) => {
   if (response.ok) {

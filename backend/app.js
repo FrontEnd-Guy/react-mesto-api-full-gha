@@ -2,8 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
-const cors = require('cors');
 const { celebrate, Joi, errors } = require('celebrate');
+const cors = require("cors");
 
 const { login, createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
@@ -44,31 +44,42 @@ const userLoginValidation = celebrate({
 
 app.use(requestLogger);
 
-const allowedCors = [
-  'http://mesto-russia.nomoredomains.monster',
-  'https://mesto-russia.nomoredomains.monster',
-  'http://localhost:3000',
-];
+// const allowedCors = [
+//   'http://mesto-russia.nomoredomains.monster',
+//   'https://mesto-russia.nomoredomains.monster',
+//   'http://localhost:3000',
+// ];
 
-app.use((req, res, next) => {
-  const { origin } = req.headers;
-  const { method } = req;
-  const DEFAULT_ALLOWED_METHODS = ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'];
-  const requestHeaders = req.headers['access-control-request-headers'];
+// app.use((req, res, next) => {
+//   const { origin } = req.headers;
+//   const { method } = req;
+//   const DEFAULT_ALLOWED_METHODS = ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'];
+//   const requestHeaders = req.headers['access-control-request-headers'];
 
-  if (allowedCors.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-  }
+//   if (allowedCors.includes(origin)) {
+//     res.header('Access-Control-Allow-Origin', origin);
+//   }
 
-  if (method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-    res.header('Access-Control-Allow-Headers', requestHeaders);
-    return res.end();
-  }
+//   if (method === 'OPTIONS') {
+//     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
+//     res.header('Access-Control-Allow-Headers', requestHeaders);
+//     return res.end();
+//   }
 
-  next();
-  return null;
-});
+//   next();
+//   return null;
+// });
+
+const corsOptions = {
+  origin: [
+    "http://localhost:3000", 
+    "http://mesto-russia.nomoredomains.monster", 
+    "https://mesto-russia.nomoredomains.monster"],
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+
 
 app.get('/crash-test', () => {
   setTimeout(() => {
