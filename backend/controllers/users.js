@@ -34,7 +34,7 @@ module.exports.login = async (req, res, next) => {
     }
     const token = jwt.sign({ _id: user._id }, 'secret-key', { expiresIn: '7d' });
     // return res.cookie('jwt', token, { httpOnly: true }).send({ message: 'Успешная авторизация' });
-    return res.send({ token, name: user.name, email: user.email });
+    return res.send({ token });
   } catch (error) {
     return next(error);
   }

@@ -25,7 +25,7 @@ module.exports.getCards = async (req, res, next) => {
 module.exports.createCard = async (req, res, next) => {
   try {
     const { name, link } = req.body;
-    const card = await Card.create({ name, link, owner: req.user._id });
+    const card = await Card.create({ name, link, owner: req.user._id, likes: [] });
     return res.status(201).send(card);
   } catch (err) {
     if (err instanceof mongoose.Error.ValidationError) {
@@ -65,7 +65,7 @@ module.exports.likeCard = async (req, res, next) => {
     if (card === null) {
       return next(new NotFoundError(NOT_FOUND_CARD_ERROR_MESSAGE));
     }
-    return res.send(card.likes);
+    return res.send(card);
   } catch (err) {
     if (err instanceof mongoose.Error.CastError) {
       return next(new InvalidError(VALIDATION_CARD_ID_ERROR_MESSAGE));
@@ -85,7 +85,7 @@ module.exports.dislikeCard = async (req, res, next) => {
     if (card === null) {
       return next(new NotFoundError(NOT_FOUND_CARD_ERROR_MESSAGE));
     }
-    return res.send(card.likes);
+    return res.send(card);
   } catch (err) {
     if (err instanceof mongoose.Error.CastError) {
       return next(new InvalidError(VALIDATION_CARD_ID_ERROR_MESSAGE));

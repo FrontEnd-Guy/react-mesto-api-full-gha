@@ -83,7 +83,7 @@ function App() {
       checkAuth(jwt)
         .then((data) => {
           setIsLoggedIn(true);
-          setUserEmail(data.data.email);
+          setUserEmail(data?.data?.email);
           navigate("/");
         })
         .catch((err) => console.log(err));
@@ -98,6 +98,7 @@ function App() {
     if (loggedIn) {
       Promise.all([api.getUserInfo(), api.getCardsList()])
         .then(([userData, cards]) => {
+          console.log("Fetched cards:", cards);
           setCurrentUser(userData);
           setCards(cards);
         })
