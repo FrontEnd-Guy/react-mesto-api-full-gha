@@ -15,7 +15,7 @@ const { urlRegex } = require('./utils/constants');
 const { requestLogger, errorLogger } = require('./middlewares/logger'); 
 
 const app = express();
-const PORT = 3001;
+const PORT = 3000;
 
 mongoose
   .connect('mongodb://127.0.0.1:27017/mestodb')
