@@ -13,8 +13,6 @@ function Main({
 }) {
   const currentUser = useContext(CurrentUserContext);
 
-  console.log("Cards in Main:", cards); 
-
   const cardsElements = cards.map((card) => {
     return (
       <Card

@@ -83,7 +83,7 @@ function App() {
       checkAuth(jwt)
         .then((data) => {
           setIsLoggedIn(true);
-          setUserEmail(data?.data?.email);
+          setUserEmail(data.email);
           navigate("/");
         })
         .catch((err) => console.log(err));
@@ -110,13 +110,16 @@ function App() {
 
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
+  
+    // Обновляем состояние карточек перед вызовом API
+    setCards((state) =>
+      state.map((c) => (c._id === card._id ? { ...card, likes: isLiked ? card.likes.filter((i) => i._id !== currentUser._id) : [...card.likes, currentUser] } : c))
+    );
+  
+    // Затем вызываем API для изменения статуса лайка на сервере
     api
-      .changeLikeCardStatus(card._id, !isLiked)
-      .then((newCard) => {
-        setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c))
-        );
-      })
+      .changeLikeCardStatus(card._id, isLiked)
+      .then(() => {})
       .catch((err) => console.log(err));
   }
 
