@@ -32,7 +32,9 @@ module.exports.login = async (req, res, next) => {
     if (!isMatch) {
       throw new UnauthorizedError(AUTH_ERROR_MESSAGE);
     }
-    const token = jwt.sign({ _id: user._id }, 'secret-key', { expiresIn: '7d' });
+    const JWT_SECRET = process.env.NODE_ENV !== 'production' ? 'development-secret-key' : process.env.JWT_SECRET;
+    const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
+    // const token = jwt.sign({ _id: user._id }, 'secret-key', { expiresIn: '7d' });
     // return res.cookie('jwt', token, { httpOnly: true }).send({ message: 'Успешная авторизация' });
     return res.send({ token });
   } catch (error) {

@@ -98,7 +98,6 @@ function App() {
     if (loggedIn) {
       Promise.all([api.getUserInfo(), api.getCardsList()])
         .then(([userData, cards]) => {
-          console.log("Fetched cards:", cards);
           setCurrentUser(userData);
           setCards(cards);
         })

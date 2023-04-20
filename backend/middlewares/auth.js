@@ -12,7 +12,9 @@ const auth = (req, res, next) => {
     return next(new UnauthorizedError('Необходима авторизация'));
   }
   try {
-    const payload = jwt.verify(token, 'secret-key');
+    const JWT_SECRET = process.env.NODE_ENV !== 'production' ? 'development-secret-key' : process.env.JWT_SECRET;
+    const payload = jwt.verify(token, JWT_SECRET);
+    // const payload = jwt.verify(token, 'secret-key');
     req.user = payload;
     return next();
   } catch (error) {
