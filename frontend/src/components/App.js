@@ -62,6 +62,7 @@ function App() {
         const { token } = await signIn(data);
         localStorage.setItem("jwt", token);
         setIsLoggedIn(true);
+        setUserEmail(data.email);
         navigate("/");
       } catch (err) {
         setInfoTooltipOpen(true);

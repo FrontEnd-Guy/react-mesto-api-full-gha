@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.82.31
+IP-адрес 158.160.98.234
 
 Frontend https://mesto-russia.nomoredomains.monster
 
