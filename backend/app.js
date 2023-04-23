@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const { celebrate, Joi, errors } = require('celebrate');
-const cors = require("cors");
+const cors = require('cors');
 
 const { login, createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
@@ -13,7 +13,7 @@ const cardRouter = require('./routes/cards');
 const { errorHandler } = require('./middlewares/errors');
 const { NotFoundError } = require('./errors/index');
 const { urlRegex } = require('./utils/constants');
-const { requestLogger, errorLogger } = require('./middlewares/logger'); 
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
 const PORT = 3000;
@@ -47,15 +47,14 @@ app.use(requestLogger);
 
 const corsOptions = {
   origin: [
-    "http://localhost:3000", 
-    "http://mesto-russia.nomoredomains.monster", 
-    "https://mesto-russia.nomoredomains.monster"],
+    'http://localhost:3000',
+    'http://mesto-russia.nomoredomains.monster',
+    'https://mesto-russia.nomoredomains.monster'],
   optionsSuccessStatus: 200,
   credentials: true,
 };
 
 app.use(cors(corsOptions));
-
 
 app.get('/crash-test', () => {
   setTimeout(() => {
