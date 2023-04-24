@@ -95,37 +95,11 @@ function App() {
     setInfoTooltipOpen(false);
   }
 
-  // useEffect(() => {
-  //   if (loggedIn) {
-  //     Promise.all([api.getUserInfo(), api.getCardsList()])
-  //       .then(([userData, cards]) => {
-  //         setCurrentUser(userData);
-  //         setCards(cards);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   }
-  // }, [loggedIn]);
-
   useEffect(() => {
     if (loggedIn) {
-      api
-        .getUserInfo()
-        .then((userData) => {
+      Promise.all([api.getUserInfo(), api.getCardsList()])
+        .then(([userData, cards]) => {
           setCurrentUser(userData);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [loggedIn]);
-
-  useEffect(() => {
-    if (loggedIn) {
-      api
-        .getCardsList()
-        .then((cards) => {
           setCards(cards);
         })
         .catch((err) => {

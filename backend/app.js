@@ -26,6 +26,13 @@ mongoose
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+app.use((req, res, next) => {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+  next();
+});
+
 const userCreateValidation = celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
