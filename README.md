@@ -1,15 +1,31 @@
 [![Tests](https://github.com/yandex-praktikum/react-mesto-api-full-gha/actions/workflows/tests.yml/badge.svg)](https://github.com/yandex-praktikum/react-mesto-api-full-gha/actions/workflows/tests.yml)
-# react-mesto-api-full
-Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения со следующими возможностями: авторизации и регистрации пользователей, операции с карточками и пользователями. Бэкенд расположите в директории `backend/`, а фронтенд - в `frontend/`. 
-  
-Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/FrontEnd-Guy/react-mesto-api-full-gha
+# 🏛️ React Mesto API Full 
 
-## Ссылки на проект
+This repository houses the full stack application for the `Mesto` project, inclusive of both frontend and backend functionalities. The system supports user registration, authentication, and various operations with user profiles and cards.
 
-IP-адрес 158.160.98.234
+The backend logic is stored in the `backend/` directory, while the frontend content can be found under `frontend/`.
 
-Frontend https://mesto-russia.nomoredomains.monster
+## 🔗 Repository Link
 
-Backend https://api.mesto-russia.nomoredomains.monster
+- 📁 [React Mesto on GitHub](https://github.com/FrontEnd-Guy/react-mesto-api-full-gha)
+
+## 🌐 Project Links
+
+- 🖥 **IP Address:** [158.160.98.234](http://158.160.98.234)
+- ✨ **Frontend:** [mesto-russia.nomoredomains.monster](https://mesto-russia.nomoredomains.monster)
+- ☁ **Backend/API:** [api.mesto-russia.nomoredomains.monster](https://api.mesto-russia.nomoredomains.monster)
+
+## 🛠 Technology Stack
+
+- **Frontend:** React.js, CSS, HTML
+- **Backend:** Express.js, MongoDB
+- **Authentication:** JWT
+- **Deployment:** Nginx on Yandex Cloud
+
+## 📬 Contact
+
+For questions, feedback, or any issues related to the project, please reach out or raise an issue on GitHub.
+
+- **Email:** [trade93@gmail.com](mailto:trade93@gmail.com)
+- **Telegram:** [@pavelzakh](https://t.me/pavelzakh)
