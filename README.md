@@ -2,7 +2,7 @@
 
 # 🏛️ React Mesto API Full 
 
-This repository houses the full stack application for the `Mesto` project, inclusive of both frontend and backend functionalities. The system supports user registration, authentication, and various operations with user profiles and cards.
+This repository houses the full stack application for the `Mesto` project. "Mesto" is an interactive page with data validation where users can add photos, delete them, and like them. The application supports user registration, authentication, and various operations with user profiles and cards.
 
 The backend logic is stored in the `backend/` directory, while the frontend content can be found under `frontend/`.
 
