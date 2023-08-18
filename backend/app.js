@@ -16,12 +16,12 @@ const { urlRegex } = require('./utils/constants');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3001;
 
 mongoose
-  .connect('mongodb://127.0.0.1:27017/mestodb')
-  .then(() => console.log('Connected'))
-  .catch((error) => console.log(`Error during connection ${error}`));
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((error) => console.log(`Error during MongoDB connection: ${error}`));
 
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -53,10 +53,7 @@ const userLoginValidation = celebrate({
 app.use(requestLogger);
 
 const corsOptions = {
-  origin: [
-    'http://localhost:3000',
-    'http://mesto-russia.nomoredomains.monster',
-    'https://mesto-russia.nomoredomains.monster'],
+  origin: process.env.CORS_WHITELIST.split(','),
   optionsSuccessStatus: 200,
   credentials: true,
 };
@@ -85,4 +82,4 @@ app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
 
-app.listen(PORT, () => console.log('Listening...'));
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
