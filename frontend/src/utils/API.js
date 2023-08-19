@@ -9,6 +9,7 @@ export default class Api {
       method: `${method}`,
       headers: {...this._headers, authorization: `Bearer ${localStorage.getItem('jwt')}`},
       body: body,
+      credentials: 'include',
     }).then((res) => {
       if (res.ok) {
         return res.json();
