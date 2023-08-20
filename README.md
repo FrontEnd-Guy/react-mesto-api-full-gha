@@ -4,10 +4,6 @@ This repository houses the full stack application for the `Mesto` project. "Mest
 
 The backend logic is stored in the `backend/` directory, while the frontend content can be found under `frontend/`.
 
-## 🔗 Repository Link
-
-- 📁 [React Mesto on GitHub](https://github.com/FrontEnd-Guy/react-mesto-api-full-gha)
-
 ## 🌐 Project Links
 
 - ✨ **Frontend:** [mesto-russia.nomoredomains.monster](https://mesto-russia.nomoredomains.monster)
@@ -23,6 +19,3 @@ The backend logic is stored in the `backend/` directory, while the frontend cont
 ## 📬 Contact
 
 For questions, feedback, or any issues related to the project, please reach out or raise an issue on GitHub.
-
-- **Email:** [trade93@gmail.com](mailto:trade93@gmail.com)
-- **Telegram:** [@pavelzakh](https://t.me/pavelzakh)
