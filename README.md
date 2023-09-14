@@ -17,3 +17,49 @@ This repository houses the full stack application for the `Mesto` project.
 
 - ✨ **Frontend:** [mesto-russia.nomoredomains.monster](https://mesto-russia.nomoredomains.monster)
 - ☁ **Backend/API:** [api.mesto-russia.nomoredomains.monster](https://api.mesto-russia.nomoredomains.monster)
+
+## 💻 Local Development Setup
+
+### 🔍 Prerequisites
+
+- Node.js
+- NPM (comes bundled with Node.js)
+- MongoDB (for the backend)
+
+### 📥 Cloning the Repository
+
+```
+git clone https://github.com/FrontEnd-Guy/react-mesto-api-full-gha.git
+```
+
+### 💻 Frontend
+1. **Navigate to the frontend directory:**
+```
+cd react-mesto-api-full-gha/frontend
+```
+2. **Install the required dependencies:**
+```
+npm install
+```
+3. **Start the frontend development server:**
+```
+npm start
+```
+The frontend application should now be running on http://localhost:3000.
+
+
+### ☁️ Backend
+1. **Navigate to the backend directory:**
+```
+cd ../backend
+```
+2. **Install the required dependencies:**
+```
+npm install
+```
+3. **Start the backend server:**
+```
+npm start
+```
+The API server should now be up and running on http://localhost:3001 or your chosen port.
+Note: Before starting the backend, ensure MongoDB is running locally and the connection string is set appropriately in your backend configurations.
