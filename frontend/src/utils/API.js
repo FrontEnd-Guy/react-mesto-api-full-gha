@@ -71,7 +71,7 @@ export default class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'https://api.mesto-russia.nomoredomains.monster',
+  baseUrl: process.env.REACT_APP_API_URL || 'http://localhost:3001',
   headers: {
     'Content-Type': 'application/json',
   },

@@ -1,4 +1,4 @@
-const BASE_URL = "https://api.mesto-russia.nomoredomains.monster";
+const BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:3001";
 
 const checkResponseStatus = (response) => {
   if (response.ok) {
